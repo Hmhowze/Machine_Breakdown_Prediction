@@ -30,10 +30,10 @@ tool wear [min]: The quality variants H/M/L add 5/3/2 minutes of tool wear to th
 >ggplot(updated, mapping=aes(Air.temperature..K.,Process.temperature..K.)) + geom_point(col='black') + gghighlight(Target==1,unhighlighted_colour = alpha("steelblue", 0.4))
 - The code will set non-failures to "steelblue", and failures to black.
 
-\\ METHODS/TOOLS: SPLITTING THE DATASET BASED ON MACHINE TYPE \\
+\\\ METHODS/TOOLS: SPLITTING THE DATASET BASED ON MACHINE TYPE \\\
 - Split the dataset into a Large List with 3 objects based on type
 >master_split <- split(<updated_master>, <updated_master>$Type)
 - Split master_split into three separate dataframes based on type for future exploration
 >master_H <- data.frame(master_split['H'])
->>master_L <- data.frame(master_split['L'])
->>>master_M <- data.frame(master_split['M'])
+>master_L <- data.frame(master_split['L'])
+>master_M <- data.frame(master_split['M'])
