@@ -20,3 +20,11 @@ torque [Nm]: torque values are normally distributed around 40 Nm with an Ïƒ = 
 
 tool wear [min]: The quality variants H/M/L add 5/3/2 minutes of tool wear to the used tool in the process. and a
 'machine failure' label that indicates, whether the machine has failed in this particular data point for any of the following failure modes are true.
+
+\\\ METHOD/TOOL FOR HIGHLIGHTING FAILURES WHEN PLOTTING TWO VARIABLES \\\
+- Use the package ''gghighlight'
+>install.package("gghighlight")
+>library(ggplot2, gghighlight)
+- Use this in combination with a ggplot:
+>ggplot(updated, mapping=aes(Air.temperature..K.,Process.temperature..K.)) + geom_point(col='black') + gghighlight(Target==1,unhighlighted_colour = alpha("steelblue", 0.4))
+- The code will set non-failures to "steelblue", and failures to black.
