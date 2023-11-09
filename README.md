@@ -23,8 +23,9 @@ tool wear [min]: The quality variants H/M/L add 5/3/2 minutes of tool wear to th
 
 \\\ METHOD/TOOL FOR HIGHLIGHTING FAILURES WHEN PLOTTING TWO VARIABLES \\\
 - Use the package ''gghighlight'
->install.package("gghighlight")
->library(ggplot2, gghighlight)
+>install.packages("gghighlight")
+>library(ggplot2)
+>library(gghighlight)
 - Use this in combination with a ggplot:
 >ggplot(updated, mapping=aes(Air.temperature..K.,Process.temperature..K.)) + geom_point(col='black') + gghighlight(Target==1,unhighlighted_colour = alpha("steelblue", 0.4))
 - The code will set non-failures to "steelblue", and failures to black.
