@@ -1,5 +1,5 @@
 library(MASS)
-library(rpart.plot)
+library(rpart)
 library(tidymodels)
 library(tidyr)
 library(readr)
@@ -24,16 +24,15 @@ train_data <- training(data_split)
 test_data <- testing(data_split)
 
 # Build model, fit it with predicted data, and build confusion matrix
-model <- rpart(Target~., data=train_data, method='class', minsplit=2)
+model <- rpart(Target~., data=train_data, method='class')
 predict_test <- predict(model, test_data, type='class')
 conf_mat <- table(test_data$Target, predict_test)
 
 # Model and data performance measures
-precision <- conf_mat[2,2]/sum(conf_mat[2,])
-recall <- conf_mat[2,2]/sum(conf_mat[,2])
-specificity <- conf_mat[1] / sum(conf_mat[1], conf_mat[2])
+precision <- conf_mat[1] / sum(conf_mat[1], conf_mat[3])
+recall <- conf_mat[1] / sum(conf_mat[1], conf_mat[2])
 f1 <- 2 * ((precision * recall) / (precision + recall))
-accuracy <- sum(conf_mat[1], conf_mat[4]) / sum(conf_mat[1:4])
+accuracy <- sum(diag(conf_mat)) / sum(conf_mat)
 
 # Plot of the decision tree model
-rpart.plot(model, tweak=1.3)
+rpart.plot(model, tweak=1.3, cex=0.4)
