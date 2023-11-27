@@ -52,3 +52,6 @@ accuracy_b <- sum(diag(conf_mat_b)) / sum(conf_mat_b)
 
 # Plot of the primary decision tree model
 rpart.plot(model_b, tweak=1.3, cex=0.4)
+
+# Save the primary model - specify pathway
+saveRDS(model_b, file = "primary_model.rds")
