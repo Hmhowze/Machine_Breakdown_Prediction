@@ -4,6 +4,8 @@
 Machine Predictive Maintenance Classification Dataset
 Since real predictive maintenance datasets are generally difficult to obtain and in particular difficult to publish, we present and provide a synthetic dataset that reflects real predictive maintenance encountered in the industry to the best of our knowledge.
 
+The dataset from Kaggle can be found at this link: https://www.kaggle.com/datasets/shivamb/machine-predictive-maintenance-classification/data 
+
 The dataset consists of 10 000 data points stored as rows with 14 features in columns
 
 UID: unique identifier ranging from 1 to 10000
